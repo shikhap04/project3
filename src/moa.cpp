@@ -6,6 +6,7 @@
 #include <map>
 #include <unordered_map>
 #include <iterator>
+#include <moa.h>
 
 using namespace std;
 
