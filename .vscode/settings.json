@@ -2,6 +2,7 @@
     "files.associations": {
         "*.tcc": "cpp",
         "unordered_map": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iostream": "cpp"
     }
 }
