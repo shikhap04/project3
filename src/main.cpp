@@ -1,6 +1,10 @@
 #include <iostream>
+#include "moa.h"
+
+using namespace std;
 
 /*
+g++ -std=c++14 -o build/test src/main.cpp src/accidentNode.cpp src/moa.cpp && ./build/test
 USER INTERFACE HERE
 - initialize program (make sure big vector is created once)
 - print to CLI options
@@ -12,7 +16,10 @@ USER INTERFACE HERE
 
 int main () {
 
-    
-    // test 2
+    cout << "RUNNING MAIN";
+
+    moa test;
+    test.parsing();
+
     return 0;
 }

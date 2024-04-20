@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <iterator>
-#include <accidentNode.h>
+#include "accidentNode.h"
 
 using namespace std;
 
@@ -17,6 +17,7 @@ using namespace std;
 class moa {
 private:
     vector<accidentNode> allData;
+    int allDataSize;
 
 public:
     moa();

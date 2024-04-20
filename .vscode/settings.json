@@ -3,6 +3,7 @@
         "*.tcc": "cpp",
         "unordered_map": "cpp",
         "string": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iterator": "cpp"
     }
 }
