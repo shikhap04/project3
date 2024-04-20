@@ -31,5 +31,9 @@ moa::moa() {
 
 
 void moa::parsing() {
-    fstream file("../input/accidentsData.xlsx");
+    fstream file("../input/accidentsData.csv");
+    if(!file.is_open()) {cout << "FILE OPENING ERROR!"};
+    // while (!file.eof()) {
+        
+    // }
 }
