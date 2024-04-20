@@ -43,7 +43,6 @@ accidentNode::accidentNode(int time, unsigned int day, unsigned int month, unsig
     this->weatherCond = weatherCond;
     this->planeCompany = planeCompany;
     this->planeModel = planeModel;
-    // comment
 }
     
 accidentNode::~accidentNode() {}
