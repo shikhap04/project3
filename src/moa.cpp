@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -32,6 +31,7 @@ moa::moa() {
 }
 
 
+// ATTEMPTING TO BRANCH
 void moa::parsing() {
     fstream file("../input/accidentsData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
