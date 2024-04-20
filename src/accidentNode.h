@@ -37,8 +37,17 @@ public:
     accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
         string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
         string planeModel);
+    
+    int getYear() {return year;}
+    int getMonth() {return month;}
+    int getDay() {return day;}
+    string getCity() {return city;}
+    string getState() {return state;}
+    string getWeatherCond() {return weatherCond;}
+    string getInjType() {return injuryType;}
+    int getInjCount() {return injuryCount;}
 
-    void printWholeNode();
+    void printWholeNode(); // NEED TO FIX -1 TO PRINT NULL
 
     ~accidentNode();
 };

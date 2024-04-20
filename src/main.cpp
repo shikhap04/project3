@@ -18,6 +18,10 @@ USER INTERFACE HERE
 int main () {
 
     moa test;
-    
+    vector<pair<string, string>> inputs;
+    inputs.push_back(make_pair("city", "Sonoma"));
+    inputs.push_back(make_pair("state", "CA"));
+    test.search(inputs);
+
     return 0;
 }

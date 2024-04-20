@@ -25,6 +25,7 @@ program class
 moa::moa() {
     parsing();
     allDataSize = allData.size();
+    cout << "Full Data Set Size: " << allDataSize << "\n";
 }
 
 void moa::parsing() {
@@ -57,20 +58,41 @@ void moa::parsing() {
 }
 
 void moa::search(vector<pair<string, string>> inputs) {
-    if (inputs.size() == 0) return; //do something
+    if (inputs.size() == 0) return;
 
     for (int i = 0; i < allDataSize; i++) {
-        for (int i = 0; i < inputs.size(); i++) {
-            
-            if (inputs[i].first == "year") {}
-            else if (inputs[i].first == "month") {}
-            else if (inputs[i].first == "day") {}
-            else if (inputs[i].first == "city") {}
-            else if (inputs[i].first == "state") {}
-            else if (inputs[i].first == "injury type") {}
+        bool addNode = true;
 
+        for (int i = 0; i < inputs.size(); i++) {
+
+            string variable = inputs[i].first;
+            string value = inputs[i].second;
+            if (variable == "year" && (stoi(value)) != allData[i].getYear()) {
+                addNode = false;
+            }
+            else if (variable == "month" && (stoi(value)) != allData[i].getMonth()) {
+                addNode = false;
+            }
+            else if (variable == "day" && (stoi(value)) != allData[i].getDay()) {
+                addNode = false;
+            }
+            else if (variable == "city" && value != allData[i].getCity()) {
+                addNode = false;
+            }
+            else if (variable == "state" && value != allData[i].getState()) {
+                addNode = false;
+            }
+            else if (variable == "injury type" && value != allData[i].getInjType()) {
+                addNode = false;
+            }
         }
+
+        if(addNode) searchedData.push_back(allData[i]);
     }
+    for (int i = 0; i < searchedData.size(); i++) {
+        searchedData[i].printWholeNode();
+    }
+    
 }
 /*
     string EVID;
