@@ -13,7 +13,7 @@ using namespace std;
 class accidentNode {
 private:
     int EVID;
-    int NTSB;
+    string NTSB;
 
     int time;
     unsigned int day;
@@ -35,7 +35,7 @@ private:
 
 public:
     accidentNode();
-    accidentNode(int EVID, int NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
+    accidentNode(int EVID, string NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
         string injuryType, unsigned int injuryCount, string city, string state, 
         string weatherCond, string planeCompany, string planeModel);
 

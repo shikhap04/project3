@@ -12,7 +12,7 @@ using namespace std;
 accidentNode::accidentNode() {
 
     EVID = 0;
-    NTSB = 0;
+    NTSB = "null";
 
     time = 0;
     day = 0;
@@ -33,7 +33,7 @@ accidentNode::accidentNode() {
     planeModel = "null";
 }
 
-accidentNode::accidentNode(int EVID, int NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
+accidentNode::accidentNode(int EVID, string NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
         string injuryType, unsigned int injuryCount, string city, string state, 
         string weatherCond, string planeCompany, string planeModel) {
     this->EVID = EVID;
