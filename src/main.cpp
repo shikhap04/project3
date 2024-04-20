@@ -18,8 +18,6 @@ USER INTERFACE HERE
 int main () {
 
     moa test;
-    test.parsing();
-
-
+    
     return 0;
 }

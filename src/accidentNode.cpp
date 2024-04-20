@@ -56,7 +56,7 @@ accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int yea
     this->planeModel = planeModel;
 }
 
-void accidentNode::printNode() {
+void accidentNode::printWholeNode() {
     cout << EVID << " " << NTSB << month << " " << day << " " << year << " " << time << " " << city << " " << state 
     << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
 }

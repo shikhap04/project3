@@ -23,11 +23,11 @@ program class
 
 
 moa::moa() {
-    allDataSize = 0;
+    parsing();
+    allDataSize = allData.size();
 }
 
 
-// ATTEMPTING TO BRANCH
 void moa::parsing() {
     fstream file("input/accidentData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
@@ -51,19 +51,19 @@ void moa::parsing() {
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
         allData.push_back(temp);
     }
-    // for (int i = 0; i < allData.size(); i++) {
-    //     allData[i].printNode();
+    // for (int i = 0; i < 10; i++) {
+    //     allData[i].printWholeNode();
     // }
 }
 
 /*
-    int EVID;
+    string EVID;
     string NTSB;
 
-    int time;
-    unsigned int day;
-    unsigned int month;
-    unsigned int year;
+    string time;
+    int day;
+    int month;
+    int year;
 
     string longitude;
     string latitude;
@@ -75,5 +75,5 @@ void moa::parsing() {
     string state;
 
     string weatherCond;
-    string planeCompany;
-    string planeModel;*/
+    string planeModel;
+    */
