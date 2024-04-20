@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -19,3 +20,4 @@ program class
     - quick sort
 - return small sorted vector to main
 */
+
