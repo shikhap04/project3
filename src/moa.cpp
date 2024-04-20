@@ -5,7 +5,10 @@
 #include <vector>
 #include <map>
 #include <unordered_map>
+#include <fstream>
+#include <sstream>
 #include <iterator>
+#include <moa.h>
 
 using namespace std;
 
@@ -21,3 +24,12 @@ program class
 - return small sorted vector to main
 */
 
+
+moa::moa() {
+
+}
+
+
+void moa::parsing() {
+    fstream file("../input/accidentsData.xlsx");
+}
