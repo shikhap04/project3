@@ -11,10 +11,16 @@ the literal main function
 
 Class List and Purpose
 
-MOA- the main chunk of the program, creates big vector, does search, sort and returns small SORTED vector to main function to be printed
-Quick Sort- takes in a small unsorted vector and returns a big sorted vector
-Heap Sort- takes in a small unsorted vector and returns a big sorted vector
+Parsing- Reads data from the Excel file and creates vector of flight accident data entries (Shikha)
 
-Search (maybe, cause it probably could be a function)- takes big vector and parameters returns small vector
+CLI- Reads in inputs from user through the command line (Jay)
+
+MOA- the main chunk of the program, creates big vector, does search, sort and returns small SORTED vector to main function to be printed
+
+Quick Sort Function- takes in a small unsorted vector and returns a big sorted vector (Jay)
+
+Heap Sort Function- takes in a small unsorted vector and returns a big sorted vector (Shikha)
+
+Search (maybe, cause it probably could be a function)- takes big vector and parameters returns small vector (Together)
  - could use a vector<pair<variable name, value>> to specificy which parameters
 
