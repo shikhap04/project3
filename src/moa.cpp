@@ -27,7 +27,6 @@ moa::moa() {
     allDataSize = allData.size();
 }
 
-
 void moa::parsing() {
     fstream file("input/accidentData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
@@ -49,6 +48,7 @@ void moa::parsing() {
         
         accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
+
         allData.push_back(temp);
     }
     // for (int i = 0; i < 10; i++) {
@@ -56,6 +56,22 @@ void moa::parsing() {
     // }
 }
 
+void moa::search(vector<pair<string, string>> inputs) {
+    if (inputs.size() == 0) return; //do something
+
+    for (int i = 0; i < allDataSize; i++) {
+        for (int i = 0; i < inputs.size(); i++) {
+            
+            if (inputs[i].first == "year") {}
+            else if (inputs[i].first == "month") {}
+            else if (inputs[i].first == "day") {}
+            else if (inputs[i].first == "city") {}
+            else if (inputs[i].first == "state") {}
+            else if (inputs[i].first == "injury type") {}
+
+        }
+    }
+}
 /*
     string EVID;
     string NTSB;
