@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <iterator>
-#include <moa.h>
+#include "moa.h"
 
 using namespace std;
 
