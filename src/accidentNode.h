@@ -38,5 +38,7 @@ public:
         string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
         string planeModel);
 
+    void printNode();
+
     ~accidentNode();
 };
