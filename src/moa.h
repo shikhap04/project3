@@ -17,6 +17,7 @@ using namespace std;
 class moa {
 private:
     vector<accidentNode> allData;
+    int allDataSize;
 
 public:
     moa();

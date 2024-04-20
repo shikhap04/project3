@@ -2,8 +2,6 @@
 #include <iomanip>
 #include <string>
 #include <vector>
-#include <map>
-#include <unordered_map>
 #include <fstream>
 #include <sstream>
 #include <iterator>
@@ -25,17 +23,32 @@ program class
 
 
 moa::moa() {
-
-    
-
+    allDataSize = 0;
 }
 
 
 // ATTEMPTING TO BRANCH
 void moa::parsing() {
-    fstream file("../input/accidentsData.csv");
+    fstream file("input/accidentsData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
-    // while (!file.eof()) {
-        
-    // }
+
+    vector<string> row;
+    string line, value;
+
+    //getline(file, line);
+
+    //while (!file.eof()) {
+    //row.clear();
+    getline(file, line);
+
+    istringstream stream(line);
+
+    while (getline(stream, value, ',')) {
+        row.push_back(value);
+    }
+
+    for (int i = 0; i < row.size(); i++) {
+        cout << row[i] << "\n";
+    }
+    //}
 }
