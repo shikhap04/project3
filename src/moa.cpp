@@ -45,17 +45,15 @@ void moa::parsing() {
 
         while (getline(stream, value, ',')) {
             row.push_back(value);
-            //cout << value << " ";
         }
         
-        for (int i = 0; i < row.size(); i++) {
-            cout << row[i] << " ";
-        }
-        cout << "\n";
         accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
         allData.push_back(temp);
     }
+    // for (int i = 0; i < allData.size(); i++) {
+    //     allData[i].printNode();
+    // }
 }
 
 /*
