@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 /*
 g++ -std=c++14 -o build/test src/main.cpp src/accidentNode.cpp src/moa.cpp && ./build/test
 USER INTERFACE HERE
@@ -16,10 +17,24 @@ USER INTERFACE HERE
 
 int main () {
 
+
+    cout << "\nWelcome to Masters of the Air! ";
+    cout << "A searchable database of all flight accidents in the U.S. from 01/2008 to 02/2024." << endl;
+
+    cout << "\nSearchable criteria include any combinations of:" << endl;
+    cout << "Day, Month, Year, City, State, Injury Type, Weather Conditions, Aircraft Company, and Aircraft Model." << endl;
+    
+    cout << "\nPlease press any key to continue and input your search criteria: " << endl;
+
+    cout << "Please input the Day, Month, and Year in each line in order."
+
+    // test 2
+
     cout << "RUNNING MAIN";
 
     moa test;
     test.parsing();
+
 
     return 0;
 }
