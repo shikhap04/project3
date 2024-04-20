@@ -5,15 +5,22 @@
 #include <map>
 #include <unordered_map>
 #include <iterator>
-#include <accidentNode.h>
+#include "accidentNode.h"
 
 using namespace std;
 
 accidentNode::accidentNode() {
+
+    EVID = 0;
+    NTSB = 0;
+
     time = 0;
     day = 0;
     month = 0;
     year = 0;
+
+    longitude = "null";
+    latitude = "null";
 
     injuryType = "null";
     injuryCount = 0;
@@ -26,13 +33,19 @@ accidentNode::accidentNode() {
     planeModel = "null";
 }
 
-accidentNode::accidentNode(int time, unsigned int day, unsigned int month, unsigned int year, 
+accidentNode::accidentNode(int EVID, int NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
         string injuryType, unsigned int injuryCount, string city, string state, 
         string weatherCond, string planeCompany, string planeModel) {
+    this->EVID = EVID;
+    this->NTSB = NTSB;
+
     this->time = time;
     this->day = day;
     this->month = month;
     this->year = year;
+
+    this->longitude = longitude;
+    this->latitude = latitude;
 
     this->injuryType = injuryType;
     this->injuryCount = injuryCount;
