@@ -27,9 +27,11 @@ program class
 
 moa::moa() {
 
+    
+
 }
 
 
 void moa::parsing() {
-    fstream file("../input/accidentsData.xlsx");
+    fstream file("../input/accidentsData.csv");
 }
