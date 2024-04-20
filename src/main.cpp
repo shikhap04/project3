@@ -17,6 +17,7 @@ USER INTERFACE HERE
 
 int main () {
 
+    vector<pair<string, auto>> inputs;
 
     cout << "\nWelcome to Masters of the Air! ";
     cout << "A searchable database of all flight accidents in the U.S. from 01/2008 to 02/2024." << endl;
@@ -29,8 +30,6 @@ int main () {
     cout << "Please input the Day, Month, and Year in each line in order."
 
     // test 2
-
-    cout << "RUNNING MAIN";
 
     moa test;
     test.parsing();
