@@ -17,8 +17,6 @@ USER INTERFACE HERE
 
 int main () {
 
-    cout << "RUNNING MAIN";
-
     moa test;
     test.parsing();
 

@@ -35,7 +35,7 @@ void moa::parsing() {
     vector<string> row;
     string line, value;
 
-    //getline(file, line);
+    getline(file, line);
 
     while (!file.eof()) {
         row.clear();
@@ -45,12 +45,18 @@ void moa::parsing() {
 
         while (getline(stream, value, ',')) {
             row.push_back(value);
+            cout << value << " ";
         }
         
-        accidentNode temp();
-        // stoi(row[0]), row[1], 
+        // for (int i = 0; i < row.size(); i++) {
+        //     cout << row[i] << " ";
+        // }
+        accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
+        row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
         cout << "\n";
+        allData.push_back(temp);
     }
+    
 }
 
 /*
