@@ -106,10 +106,18 @@ void moa::search(unordered_map<string, string>& inputs) {
     cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
 }
 
-void moa::runSorts() {
+void moa::runSorts(bool indicator) {
+
     sorting test2(searchedData);
-    test2.quickSort(0, searchedData.size() - 1);
-    test2.print(false);
+    if (indicator == true) {
+        test2.heapSort();
+        test2.print(true);
+    }
+    else {
+        test2.quickSort(0, searchedData.size() - 1);
+        test2.print(false);
+    }
+    
 }
 /*
     string EVID;
