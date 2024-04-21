@@ -1,10 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include <iomanip>
-#include <string>
 #include <vector>
-#include <map>
 #include <unordered_map>
 #include <fstream>
 #include <sstream>
@@ -23,6 +20,7 @@ private:
 public:
     moa();
     void parsing();
-    void search(vector<pair<string, string>>& inputs);
+    void search(unordered_map<string, string>& inputs);
+    void runSorts();
 
 };
