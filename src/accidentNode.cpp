@@ -2,9 +2,6 @@
 #include <iomanip>
 #include <string>
 #include <vector>
-#include <map>
-#include <unordered_map>
-#include <iterator>
 #include "accidentNode.h"
 
 using namespace std;
@@ -57,7 +54,26 @@ accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int yea
 }
 
 void accidentNode::printWholeNode() {
-    cout << EVID << " " << NTSB << " " << month << " " << day << " " << year << " " << time << " " << city << " " << state 
+    string timeFormat;
+    if (time.size() == 4) {
+        timeFormat.append(1, time[0]);
+        timeFormat.append(1, time[1]);
+        timeFormat.append(1, ':');
+        timeFormat.append(1, time[2]);
+        timeFormat.append(1, time[3]);
+
+    }
+    if (time.size() == 3) {
+        timeFormat.append(1, '0');
+        timeFormat.append(1, time[0]);
+        timeFormat.append(1, ':');
+        timeFormat.append(1, time[1]);
+        timeFormat.append(1, time[2]);
+    }
+
+    
+
+    cout << EVID << " " << NTSB << " " << month << " " << day << " " << year << " " << timeFormat << " " << city << " " << state 
     << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
 }
     

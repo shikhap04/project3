@@ -1,4 +1,3 @@
-#include <iostream>
 #include <iomanip>
 #include <string>
 #include <vector>
@@ -52,28 +51,24 @@ void moa::parsing() {
 
         allData.push_back(temp);
     }
-    // for (int i = 0; i < 10; i++) {
-    //     allData[i].printWholeNode();
-    // }
 }
 
-void moa::search(vector<pair<string, string>>& inputs) {
+void moa::search(unordered_map<string, string>& inputs) {
     if (inputs.size() == 0) {
         searchedData = allData;
         return;
     }
 
-    for(int i = 0; i < inputs.size(); i++) {
-        cout << inputs[i].first << ":" << inputs[i].second << "\n";
+    for(auto iter : inputs) {
+        cout << iter.first << ":" << iter.second << "\n";
     }
 
     for (int i = 0; i < allDataSize; i++) {
         bool addNode = true;
 
-        for (int j = 0; j < inputs.size(); j++) {
-
-            string variable = inputs[j].first;
-            string value = inputs[j].second;
+        for (auto iter : inputs) {
+            string variable = iter.first;
+            string value = iter.second;
 
             if (variable == "Year" && (stoi(value)) != allData[i].getYear()) {
                 addNode = false;
@@ -110,6 +105,10 @@ void moa::search(vector<pair<string, string>>& inputs) {
         searchedData[i].printWholeNode();
     }
     cout << "searched size: " << searchedData.size() << "\n";
+}
+
+void moa::runSorts() {
+
 }
 /*
     string EVID;

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "moa.h"
 
 using namespace std;
@@ -19,7 +18,7 @@ int main () {
 
     moa test;
     
-    vector<pair<string, string>> inputs;
+    unordered_map<string, string> inputs;
 
     string city;
     string state; 
@@ -57,8 +56,7 @@ int main () {
 
     if (isYearNum == true && stoi(year) <= 2024 && stoi(year) >= 2008) {
 
-        pair<string, string> temp("Year", year);
-        inputs.push_back(temp);
+        inputs.emplace("Year", year);
 
         cout << "Please input the searchable month (1-12) or any other value if you're not searching by month." << endl;
         cin >> month;
@@ -72,8 +70,7 @@ int main () {
         }
         if (isMonthNum == true && stoi(month) <= 12 && stoi(month) >= 1) {
 
-            pair<string, string> temp("Month", month);
-            inputs.push_back(temp);
+            inputs.emplace("Month", month);
 
             cout << "Please input the searchable day (1-31) or any other value if you're not searching by day." << endl;
             cin >> day;
@@ -88,8 +85,7 @@ int main () {
 
             if (isDayNum == true && stoi(day) <= 31 && stoi(day) >= 1) {
 
-                pair<string, string> temp("Day", day);
-                inputs.push_back(temp);
+                inputs.emplace("Day", day);
 
             } else {
 
@@ -112,8 +108,7 @@ int main () {
 
     if (state.size() == 2) {
 
-        pair<string, string> temp("State", state);
-        inputs.push_back(temp);
+        inputs.emplace("State", state);
 
         cout << "Please input the searchable city (e.g. Detroit) or -1 if you're not searching by city." << endl;
         //cin >> city;
@@ -121,8 +116,7 @@ int main () {
 
         if (city != "-1") {
 
-            pair<string, string> temp("City", city);
-            inputs.push_back(temp);
+            inputs.emplace("City", city);
 
         } else {
 
@@ -139,8 +133,7 @@ int main () {
 
     if (weatherCond == "CLER" || weatherCond == "FEW" || weatherCond == "SCAT" || weatherCond == "OVCT") {
 
-        pair<string, string> temp("Sky Condition", weatherCond);
-        inputs.push_back(temp);
+        inputs.emplace("Sky Condition", weatherCond);
     }
     else {
 
@@ -152,8 +145,7 @@ int main () {
 
     if (injuryType == "NONE" || injuryType == "MINR" || injuryType == "SERS" || injuryType == "FATL") {
 
-        pair<string, string> temp("Highest Injury", injuryType);
-        inputs.push_back(temp);
+        inputs.emplace("Highest Injury", injuryType);
     }
     else {
 
