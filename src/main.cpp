@@ -17,6 +17,9 @@ USER INTERFACE HERE
 
 int main () {
 
+    moa test;
+    
+
     vector<pair<string, string>> inputs;
 
     string city;

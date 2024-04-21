@@ -1,5 +1,7 @@
 A way to share notes for the other or just reminders for ourselves.
 
+Merged parsing branch to main and deleted the branch as parsing is now complete.
+
 the literal main function
 - user interface
 - constructs MOA

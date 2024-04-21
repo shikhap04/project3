@@ -12,13 +12,13 @@ using namespace std;
 
 class accidentNode {
 private:
-    int EVID;
-    int NTSB;
+    string EVID;
+    string NTSB;
 
-    int time;
-    unsigned int day;
-    unsigned int month;
-    unsigned int year;
+    string time;
+    int day;
+    int month;
+    int year;
 
     string longitude;
     string latitude;
@@ -30,14 +30,15 @@ private:
     string state;
 
     string weatherCond;
-    string planeCompany;
     string planeModel;
 
 public:
     accidentNode();
-    accidentNode(int EVID, int NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
-        string injuryType, unsigned int injuryCount, string city, string state, 
-        string weatherCond, string planeCompany, string planeModel);
+    accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
+        string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
+        string planeModel);
+
+    void printWholeNode();
 
     //~accidentNode();
 };

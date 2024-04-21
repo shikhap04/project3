@@ -11,10 +11,10 @@ using namespace std;
 
 accidentNode::accidentNode() {
 
-    EVID = 0;
-    NTSB = 0;
+    EVID = "null";
+    NTSB = "null";
 
-    time = 0;
+    time = "null";
     day = 0;
     month = 0;
     year = 0;
@@ -29,13 +29,12 @@ accidentNode::accidentNode() {
     state = "null";
 
     weatherCond = "null";
-    planeCompany = "null";
     planeModel = "null";
 }
 
-accidentNode::accidentNode(int EVID, int NTSB, int time, unsigned int day, unsigned int month, unsigned int year, string longitude, string latitude, 
-        string injuryType, unsigned int injuryCount, string city, string state, 
-        string weatherCond, string planeCompany, string planeModel) {
+accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
+        string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
+        string planeModel) {
     this->EVID = EVID;
     this->NTSB = NTSB;
 
@@ -54,8 +53,12 @@ accidentNode::accidentNode(int EVID, int NTSB, int time, unsigned int day, unsig
     this->state = state;
 
     this->weatherCond = weatherCond;
-    this->planeCompany = planeCompany;
     this->planeModel = planeModel;
+}
+
+void accidentNode::printWholeNode() {
+    cout << EVID << " " << NTSB << month << " " << day << " " << year << " " << time << " " << city << " " << state 
+    << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
 }
     
 //accidentNode::~accidentNode() {}

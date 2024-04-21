@@ -23,32 +23,57 @@ program class
 
 
 moa::moa() {
-    allDataSize = 0;
+    parsing();
+    allDataSize = allData.size();
 }
 
 
-// ATTEMPTING TO BRANCH
 void moa::parsing() {
-    fstream file("input/accidentsData.csv");
+    fstream file("input/accidentData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
 
     vector<string> row;
     string line, value;
 
-    //getline(file, line);
-
-    //while (!file.eof()) {
-    //row.clear();
     getline(file, line);
 
-    istringstream stream(line);
+    while (!file.eof()) {
+        row.clear();
+        getline(file, line);
 
-    while (getline(stream, value, ',')) {
-        row.push_back(value);
-    }
+        istringstream stream(line);
 
-    for (int i = 0; i < row.size(); i++) {
-        cout << row[i] << "\n";
+        while (getline(stream, value, ',')) {
+            row.push_back(value);
+        }
+        
+        accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
+        row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
+        allData.push_back(temp);
     }
-    //}
+    // for (int i = 0; i < 10; i++) {
+    //     allData[i].printWholeNode();
+    // }
 }
+
+/*
+    string EVID;
+    string NTSB;
+
+    string time;
+    int day;
+    int month;
+    int year;
+
+    string longitude;
+    string latitude;
+
+    string injuryType;
+    unsigned int injuryCount;
+
+    string city;
+    string state;
+
+    string weatherCond;
+    string planeModel;
+    */
