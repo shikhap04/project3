@@ -39,5 +39,5 @@ public:
         string injuryType, unsigned int injuryCount, string city, string state, 
         string weatherCond, string planeCompany, string planeModel);
 
-    ~accidentNode();
+    //~accidentNode();
 };

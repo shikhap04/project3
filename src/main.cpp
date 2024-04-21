@@ -17,7 +17,16 @@ USER INTERFACE HERE
 
 int main () {
 
-    vector<pair<string, auto>> inputs;
+    vector<pair<string, string>> inputs;
+
+    string city;
+    string state; 
+    unsigned int day;
+    unsigned int month;
+    unsigned int year;
+    string injuryType;
+    
+    string weatherCond; 
 
     cout << "\nWelcome to Masters of the Air! ";
     cout << "A searchable database of all flight accidents in the U.S. from 01/2008 to 02/2024." << endl;
@@ -27,13 +36,27 @@ int main () {
     
     cout << "\nPlease press any key to continue and input your search criteria: " << endl;
 
-    cout << "Please input the Day, Month, and Year in each line in order."
+    cout << "Please input the searchable year (2008-2024) or any other value if you're not searching by year." << endl;
+    cin >> year;
+    if (year <= 2024 && year >= 2008) {
+        string y = to_string(year);
+        pair<string, string> temp("Year", y);
+        inputs.push_back(temp);
 
-    // test 2
+        cout << "Please input the searchable month (1-12) or any other value if you're not searching by year." << endl;
+        cin >> month;
+        if (month <= 12 && month >= 1) {
+            string m = to_string(month);
+            pair<string, string> temp("Year", y);
+            inputs.push_back(temp);
+        } else {
+            cout <<  "Not searching by month -> " << month;
+        }
 
-    moa test;
-    test.parsing();
-
+    } else {
+        cout <<  "Not searching by date -> " << year;
+    }
+    
 
     return 0;
 }

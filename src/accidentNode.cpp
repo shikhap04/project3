@@ -58,4 +58,4 @@ accidentNode::accidentNode(int EVID, int NTSB, int time, unsigned int day, unsig
     this->planeModel = planeModel;
 }
     
-accidentNode::~accidentNode() {}
+//accidentNode::~accidentNode() {}
