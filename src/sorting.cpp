@@ -1,6 +1,14 @@
 
 #include "sorting.h"
 
+accidentNode sorting::extractMax() {
+    accidentNode temp = heapData[0];
+    heapData[0] = heapData[heapData.size() - 1];
+    heapSize--;
+    heapifyDown(0);
+    return temp;
+}
+
 void sorting::heapifyDown(int index) {
     /*
     if index is a leaf or children of index are greater than index -> stop
@@ -13,11 +21,10 @@ void sorting::heapifyDown(int index) {
 
     int largest = index;
 
-    if (left < dataSize && heapData[left].getInjCount() > heapData[index].getInjCount()) {
+    if (left < heapSize - 1 && heapData[left].getInjCount() > heapData[largest].getInjCount()) {
         largest = left;
     }
-    if (right < dataSize && heapData[right].getInjCount() > heapData[index].getInjCount() 
-        && heapData[right].getInjCount() > heapData[left].getInjCount()) {
+    if (right < heapSize - 1 && heapData[right].getInjCount() > heapData[largest].getInjCount()) {
         largest = right;
     }
     if (largest != index) {
@@ -30,14 +37,26 @@ void sorting::heapifyDown(int index) {
 void sorting::heapSort() {
     // Need to heap build
     // function for heapify down
-    /*
-    for (i = size/2; i >= 0; i--) {
-        heapifydown(i)
+    if (heapSize <= 1) return;
+    for (int i = heapSize/2; i >= 0; i--) {
+        heapifyDown(i);
     }
-    */
-    return;
+    
 }
 
 void sorting::quickSort() {
     return;
+}
+
+void sorting::print(bool type) {
+    if (type) {
+        for (int i = 0; i < heapData.size(); i++) {
+            extractMax().printInfo();
+        }
+    }
+    else {
+        for (int i = 0; i < heapSize; i++) {
+            quickData[i].printInfo();
+        }
+    }
 }

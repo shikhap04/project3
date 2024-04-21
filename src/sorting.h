@@ -1,4 +1,5 @@
 #pragma once
+
 #include "vector"
 #include "accidentNode.h"
 
@@ -6,18 +7,21 @@ class sorting {
 private:
     vector<accidentNode> heapData;
     vector<accidentNode> quickData;
-    int dataSize;
+    int heapSize;
+
+    void heapifyDown(int index);
+    accidentNode extractMax();
 
 public:
     sorting() {
-        dataSize = 0;
+        heapSize = 0;
     }
-    sorting(vector<accidentNode> searchedData) {
+    sorting(vector<accidentNode>& searchedData) {
         heapData = searchedData;
         quickData = searchedData;
-        dataSize = searchedData.size();
+        heapSize = searchedData.size();
     }
-    void heapifyDown(int index);
+    void print(bool type);
     void heapSort();
     void quickSort();
 };

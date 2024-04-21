@@ -6,6 +6,7 @@
 #include <iterator>
 #include "moa.h"
 
+
 using namespace std;
 
 /*
@@ -56,6 +57,7 @@ void moa::parsing() {
 void moa::search(unordered_map<string, string>& inputs) {
     if (inputs.size() == 0) {
         searchedData = allData;
+        cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
         return;
     }
 
@@ -101,14 +103,13 @@ void moa::search(unordered_map<string, string>& inputs) {
         }
         if(addNode == true) searchedData.push_back(allData[i]);
     }
-    for (int i = 0; i < searchedData.size(); i++) {
-        searchedData[i].printInfo();
-    }
-    cout << "searched size: " << searchedData.size() << "\n";
+    cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
 }
 
 void moa::runSorts() {
-
+    sorting test2(searchedData);
+    test2.heapSort();
+    test2.print(true);
 }
 /*
     string EVID;

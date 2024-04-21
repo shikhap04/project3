@@ -63,13 +63,31 @@ string accidentNode::reformatTime() {
         timeFormat.append(1, time[3]);
 
     }
-    if (time.size() == 3) {
+    else if (time.size() == 3) {
         timeFormat.append(1, '0');
         timeFormat.append(1, time[0]);
         timeFormat.append(1, ':');
         timeFormat.append(1, time[1]);
         timeFormat.append(1, time[2]);
     }
+    else if (time == "-1") {
+        timeFormat = "N/A";
+    }
+    else if (time.size() == 2) {
+        timeFormat.append(1, time[0]);
+        timeFormat.append(1, time[1]);
+        timeFormat.append(1, ':');
+        timeFormat.append(1, '0');
+        timeFormat.append(1, '0');
+    }
+    else if (time.size() == 1) {
+        timeFormat.append(1, '0');
+        timeFormat.append(1, time[0]);
+        timeFormat.append(1, ':');
+        timeFormat.append(1, '0');
+        timeFormat.append(1, '0');
+    }
+
     return timeFormat;
 }
 

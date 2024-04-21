@@ -1,10 +1,11 @@
 #include "moa.h"
+#include "sorting.h"
 
 using namespace std;
 
 
 /*
-g++ -std=c++14 -o build/test src/main.cpp src/accidentNode.cpp src/moa.cpp && ./build/test
+g++ -std=c++14 -o build/test src/main.cpp src/accidentNode.cpp src/moa.cpp src/sorting.cpp && ./build/test
 USER INTERFACE HERE
 - initialize program (make sure big vector is created once)
 - print to CLI options
@@ -153,7 +154,9 @@ int main () {
     }
 
     cout << "\n";
+
     test.search(inputs);
+    test.runSorts();
 
     return 0;
 
