@@ -40,5 +40,5 @@ public:
 
     void printWholeNode();
 
-    ~accidentNode();
+    //~accidentNode();
 };
