@@ -60,34 +60,44 @@ void moa::parsing() {
 void moa::search(vector<pair<string, string>> inputs) {
     if (inputs.size() == 0) return;
 
+    for(int i =0; i < inputs.size(); i++) {
+        cout << inputs[i].first << ":" << inputs[i].second << "\n";
+    }
+
     for (int i = 0; i < allDataSize; i++) {
         bool addNode = true;
 
-        for (int i = 0; i < inputs.size(); i++) {
+        for (int j = 0; j < inputs.size(); j++) {
 
-            string variable = inputs[i].first;
-            string value = inputs[i].second;
+            string variable = inputs[j].first;
+            string value = inputs[j].second;
+
             if (variable == "year" && (stoi(value)) != allData[i].getYear()) {
                 addNode = false;
+                break;
             }
             else if (variable == "month" && (stoi(value)) != allData[i].getMonth()) {
                 addNode = false;
+                break;
             }
             else if (variable == "day" && (stoi(value)) != allData[i].getDay()) {
                 addNode = false;
+                break;
             }
             else if (variable == "city" && value != allData[i].getCity()) {
                 addNode = false;
+                break;
             }
             else if (variable == "state" && value != allData[i].getState()) {
                 addNode = false;
+                break;
             }
             else if (variable == "injury type" && value != allData[i].getInjType()) {
                 addNode = false;
+                break;
             }
         }
-
-        if(addNode) searchedData.push_back(allData[i]);
+        if(addNode == true) searchedData.push_back(allData[i]);
     }
     for (int i = 0; i < searchedData.size(); i++) {
         searchedData[i].printWholeNode();
