@@ -102,6 +102,7 @@ void moa::search(vector<pair<string, string>> inputs) {
     for (int i = 0; i < searchedData.size(); i++) {
         searchedData[i].printWholeNode();
     }
+    cout << "searched size" << searchedData.size();
     
 }
 /*
