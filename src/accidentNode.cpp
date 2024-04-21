@@ -61,4 +61,4 @@ void accidentNode::printWholeNode() {
     << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
 }
     
-accidentNode::~accidentNode() {}
+//accidentNode::~accidentNode() {}

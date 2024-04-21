@@ -49,5 +49,5 @@ public:
 
     void printWholeNode(); // NEED TO FIX -1 TO PRINT NULL
 
-    ~accidentNode();
+    //~accidentNode();
 };
