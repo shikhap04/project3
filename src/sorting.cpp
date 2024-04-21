@@ -10,12 +10,6 @@ accidentNode sorting::extractMax() {
 }
 
 void sorting::heapifyDown(int index) {
-    /*
-    if index is a leaf or children of index are greater than index -> stop
-    Find the smallest child of node at index
-    Swap node at index with smallest_child_index
-    heapifyDown(smallest_child_index)
-*/
     int left = (index * 2) + 1;
     int right = (index * 2) + 2;
 
@@ -44,8 +38,49 @@ void sorting::heapSort() {
     
 }
 
-void sorting::quickSort() {
-    return;
+int sorting::partition(int start, int end) {
+
+
+    int pivotValue = quickData[start].getInjCount();
+    int up = start; 
+    int down = end;
+
+    while (up < down) {
+
+        for (int j = up; j < end; j++) {
+
+            if (quickData[up].getInjCount() > pivotValue) {
+                break;
+            }
+            up++;
+        }
+
+        for (int j = end; j > start; j--) {
+
+            if (quickData[down].getInjCount() < pivotValue) {
+                break;
+            }
+            down--;
+        }
+
+        if (up < down) {
+            swap(quickData.at(up), quickData.at(down));
+        }
+
+    }
+
+    swap(quickData.at(start), quickData.at(down));
+    return down;
+}
+
+void sorting::quickSort(int start, int end) {
+
+    if (start < end) {
+        int pivotPosition = partition(start, end);
+        quickSort(start, pivotPosition - 1);
+        quickSort(pivotPosition + 1, end);
+    }
+
 }
 
 void sorting::print(bool type) {
@@ -56,7 +91,7 @@ void sorting::print(bool type) {
         }
     }
     else {
-        for (int i = 0; i < heapSize; i++) {
+        for (int i = quickData.size() - 1; i >= 0; i--) {
             quickData[i].printInfo();
         }
     }

@@ -12,7 +12,7 @@ private:
     void heapifyDown(int index);
     accidentNode extractMax();
 
-
+    int partition(int start, int end);
 public:
     sorting() {
         heapSize = 0;
@@ -22,7 +22,8 @@ public:
         quickData = searchedData;
         heapSize = searchedData.size();
     }
-    void print(bool type);
     void heapSort();
-    void quickSort();
+    void quickSort(int start, int end);
+    
+    void print(bool type);
 };

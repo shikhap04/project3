@@ -108,8 +108,8 @@ void moa::search(unordered_map<string, string>& inputs) {
 
 void moa::runSorts() {
     sorting test2(searchedData);
-    test2.heapSort();
-    test2.print(true);
+    test2.quickSort(0, searchedData.size() - 1);
+    test2.print(false);
 }
 /*
     string EVID;
