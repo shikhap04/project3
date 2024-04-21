@@ -66,7 +66,7 @@ int main () {
             cout << "Please input the searchable day (1-31) or any other value if you're not searching by day." << endl;
             cin >> day;
 
-            if (month <= 31 && month >= 1) {
+            if (day <= 31 && day >= 1) {
 
                 string d = to_string(day);
                 pair<string, string> temp("Day", d);
@@ -74,7 +74,7 @@ int main () {
 
             } else {
 
-                cout <<  "Not searching by day -> " << month << endl;
+                cout <<  "Not searching by day -> " << day << endl;
             }
 
         } else {
@@ -88,7 +88,7 @@ int main () {
         cout <<  "Not searching by year -> " << year << endl;
     }
 
-    cout << "Please input the searchable state in abbreviated format (e.g. KA) or any other value if you're not searching by year." << endl;
+    cout << "Please input the searchable state in abbreviated format (e.g. KA) or any other value if you're not searching by state." << endl;
     cin >> state;
 
     if (state.size() == 2) {
@@ -127,7 +127,7 @@ int main () {
         cout << "Not searching by weatherCond -> " << weatherCond << endl;
     }
     
-    cout << "Please input the searchable injury type or any other value if you're not searching by weather conditions." << endl;
+    cout << "Please input the searchable injury type or any other value if you're not searching by injury type." << endl;
     cin >> injuryType;
 
     if (injuryType == "None" || injuryType == "Minr" || injuryType == "Sers" || injuryType == "Fatl") {
@@ -145,6 +145,7 @@ int main () {
         cout << inputs[i].second << endl;
     }
 
+    test.search(inputs);
 
     return 0;
 
