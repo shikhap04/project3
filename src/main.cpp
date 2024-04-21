@@ -24,9 +24,9 @@ int main () {
 
     string city;
     string state; 
-    unsigned int day;
-    unsigned int month;
-    unsigned int year;
+    string day;
+    string month;
+    string year;
     string injuryType;
     string weatherCond; 
 
@@ -47,29 +47,53 @@ int main () {
 
     cout << "\nPlease input the searchable year (2008-2024) or any other value if you're not searching by year." << endl;
     cin >> year;
+    bool isYearNum = true;
 
-    if (year <= 2024 && year >= 2008) {
+    for (auto i: year) {
+        if(!isdigit(i)) {
+            isYearNum = false;
+            break;
+        }
+    }
 
-        string y = to_string(year);
-        pair<string, string> temp("Year", y);
+    if (isYearNum == true && stoi(year) <= 2024 && stoi(year) >= 2008) {
+
+        pair<string, string> temp("Year", year);
         inputs.push_back(temp);
 
         cout << "Please input the searchable month (1-12) or any other value if you're not searching by month." << endl;
         cin >> month;
+        bool isMonthNum = true;
 
-        if (month <= 12 && month >= 1) {
+        for (auto i: month) {
+            if(!isdigit(i)) {
+                isMonthNum = false;
+                break;
+            }
+        }
+        if (isMonthNum == true && stoi(month) <= 12 && stoi(month) >= 1) {
 
-            string m = to_string(month);
-            pair<string, string> temp("Month", m);
+            pair<string, string> temp("Month", month);
             inputs.push_back(temp);
 
             cout << "Please input the searchable day (1-31) or any other value if you're not searching by day." << endl;
             cin >> day;
+            bool isDayNum = true;
 
+<<<<<<< HEAD
             if (day <= 31 && day >= 1) {
+=======
+            for (auto i: day) {
+                if(!isdigit(i)) {
+                    isDayNum = false;
+                    break;
+                }
+            }
+>>>>>>> b488af58092e35599713cbd67539fa620403af79
 
-                string d = to_string(day);
-                pair<string, string> temp("Day", d);
+            if (isDayNum == true && stoi(day) <= 31 && stoi(day) >= 1) {
+
+                pair<string, string> temp("Day", day);
                 inputs.push_back(temp);
 
             } else {
