@@ -1,7 +1,21 @@
 A way to share notes for the other or just reminders for ourselves.
 
-Merged parsing branch to main and deleted the branch as parsing is now complete.
 
+<------------------------SHIKHA NOTES------------------------>
+I have created a sorting class, you can make the quick sort function in there. It creates two vectors, quick data and heap data, as copies of
+searched data. I have not done any of the chrono stuff. We may have to change the format but we'll see after we finish sort 
+
+Link for chrono
+https://stackoverflow.com/questions/22387586/measuring-execution-time-of-a-function-in-c
+
+
+<--------------------------JAY NOTES-------------------------->
+
+
+
+
+
+<----------------------GENERAL STRUCTURE --------------------->
 the literal main function
 - user interface
 - constructs MOA

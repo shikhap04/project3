@@ -27,7 +27,7 @@ void sorting::heapifyDown(int index) {
 
 }
 
-void sorting::heapSort(vector<accidentNode>& heapData) {
+void sorting::heapSort() {
     // Need to heap build
     // function for heapify down
     /*
@@ -38,6 +38,6 @@ void sorting::heapSort(vector<accidentNode>& heapData) {
     return;
 }
 
-void sorting::quickSort(vector<accidentNode>& quickData) {
+void sorting::quickSort() {
     return;
 }

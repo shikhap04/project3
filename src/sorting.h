@@ -18,6 +18,6 @@ public:
         dataSize = searchedData.size();
     }
     void heapifyDown(int index);
-    void heapSort(vector<accidentNode>& heapData);
-    void quickSort(vector<accidentNode>& quickData);
+    void heapSort();
+    void quickSort();
 };
