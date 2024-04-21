@@ -53,7 +53,7 @@ accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int yea
     this->planeModel = planeModel;
 }
 
-void accidentNode::printWholeNode() {
+string accidentNode::reformatTime() {
     string timeFormat;
     if (time.size() == 4) {
         timeFormat.append(1, time[0]);
@@ -70,11 +70,20 @@ void accidentNode::printWholeNode() {
         timeFormat.append(1, time[1]);
         timeFormat.append(1, time[2]);
     }
+    return timeFormat;
+}
 
-    
+void accidentNode::printWholeNode() {
+    string timeFormat = reformatTime();    
 
     cout << EVID << " " << NTSB << " " << month << " " << day << " " << year << " " << timeFormat << " " << city << " " << state 
     << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
+}
+
+void accidentNode::printInfo() {
+    string timeFormat = reformatTime();
+    cout << "Date: " <<  month << "/" << day << "/" << year << " " << timeFormat << "  Location: " << city << ", " << state << "  Weather: " << weatherCond 
+    << "  " << injuryType << ": " << injuryCount << "  Plane: " << planeModel << "\n";
 }
     
 //accidentNode::~accidentNode() {}
