@@ -12,6 +12,7 @@ private:
     void heapifyDown(int index);
     accidentNode extractMax();
 
+
 public:
     sorting() {
         heapSize = 0;

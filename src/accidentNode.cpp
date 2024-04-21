@@ -91,6 +91,7 @@ string accidentNode::reformatTime() {
     return timeFormat;
 }
 
+
 void accidentNode::printWholeNode() {
     string timeFormat = reformatTime();    
 
@@ -100,8 +101,12 @@ void accidentNode::printWholeNode() {
 
 void accidentNode::printInfo() {
     string timeFormat = reformatTime();
-    cout << "Date: " <<  month << "/" << day << "/" << year << " " << timeFormat << "  Location: " << city << ", " << state << "  Weather: " << weatherCond 
-    << "  " << injuryType << ": " << injuryCount << "  Plane: " << planeModel << "\n";
+
+    cout << "Date: " << month << "/" << day << "/" << year << " " << timeFormat;
+    cout << "  Location: " << city << ", " << state;
+    cout << "  Weather: " << weatherCond;
+    cout << "  Worst Injury: " << injuryType << ": " << injuryCount;
+    cout << "  Plane: " << planeModel << "\n";
 }
     
 //accidentNode::~accidentNode() {}

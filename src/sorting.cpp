@@ -3,7 +3,7 @@
 
 accidentNode sorting::extractMax() {
     accidentNode temp = heapData[0];
-    heapData[0] = heapData[heapData.size() - 1];
+    heapData[0] = heapData[heapSize - 1];
     heapSize--;
     heapifyDown(0);
     return temp;
@@ -21,10 +21,10 @@ void sorting::heapifyDown(int index) {
 
     int largest = index;
 
-    if (left < heapSize - 1 && heapData[left].getInjCount() > heapData[largest].getInjCount()) {
+    if (left < heapSize && heapData[left].getInjCount() > heapData[largest].getInjCount()) {
         largest = left;
     }
-    if (right < heapSize - 1 && heapData[right].getInjCount() > heapData[largest].getInjCount()) {
+    if (right < heapSize && heapData[right].getInjCount() > heapData[largest].getInjCount()) {
         largest = right;
     }
     if (largest != index) {
@@ -37,8 +37,8 @@ void sorting::heapifyDown(int index) {
 void sorting::heapSort() {
     // Need to heap build
     // function for heapify down
-    if (heapSize <= 1) return;
-    for (int i = heapSize/2; i >= 0; i--) {
+    if (heapData.size() <= 1) return;
+    for (int i = heapData.size()/2; i >= 0; i--) {
         heapifyDown(i);
     }
     
@@ -51,6 +51,7 @@ void sorting::quickSort() {
 void sorting::print(bool type) {
     if (type) {
         for (int i = 0; i < heapData.size(); i++) {
+            //heapData[i].printInfo();
             extractMax().printInfo();
         }
     }
