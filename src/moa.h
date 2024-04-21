@@ -22,6 +22,6 @@ public:
     moa();
     void parsing();
     void search(unordered_map<string, string>& inputs);
-    void runSorts();
+    void runSorts(bool indicator);
 
 };
