@@ -102,7 +102,7 @@ void moa::search(unordered_map<string, string>& inputs) {
         if(addNode == true) searchedData.push_back(allData[i]);
     }
     for (int i = 0; i < searchedData.size(); i++) {
-        searchedData[i].printWholeNode();
+        searchedData[i].printInfo();
     }
     cout << "searched size: " << searchedData.size() << "\n";
 }

@@ -27,6 +27,8 @@ private:
     string weatherCond;
     string planeModel;
 
+    string reformatTime();
+
 public:
     accidentNode();
     accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
@@ -43,6 +45,7 @@ public:
     int getInjCount() {return injuryCount;}
 
     void printWholeNode(); // NEED TO FIX -1 TO PRINT NULL
+    void printInfo();
 
     //~accidentNode();
 };
