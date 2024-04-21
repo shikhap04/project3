@@ -1,4 +1,5 @@
 #include "moa.h"
+#include "sorting.h"
 
 using namespace std;
 
@@ -54,6 +55,25 @@ int main () {
         }
     }
 
+    // string individual;
+    // istringstream iss(year);
+    // if (isYearNum == true) {
+    //     tempVector temp;
+    //     getline(iss, individual, ' ');
+    //     for (int i = 0; i < 2; i++) {
+    //         if (stoi(individual) <= 2024 && stoi(individual) >= 2008) {
+    //             if (i == 0) {
+    //                 temp.push_back(individual);
+    //             }
+    //             else if (stoi(temp[0]) < stoi(individual)) {
+    //                 temp.push_back(individual);
+    //             }
+    //         }
+    //     }
+    //     inputs.emplace("Year", temp);
+    // }
+    
+
     if (isYearNum == true && stoi(year) <= 2024 && stoi(year) >= 2008) {
 
         inputs.emplace("Year", year);
@@ -106,7 +126,7 @@ int main () {
     cout << "Please input the searchable state in abbreviated format (e.g. MI) or any other value if you're not searching by state." << endl;
     cin >> state;
 
-    if (state.size() == 2) {
+    if (state != "-1" && state.size() == 2) {
 
         inputs.emplace("State", state);
 
@@ -152,8 +172,11 @@ int main () {
         cout << "Not searching by injuryType -> " << injuryType << endl;
     }
 
-    cout << "\n";
-    test.search(inputs);
+    // cout << "\n";
+    // vector<accidentNode> testV = test.search(inputs);
+    // sorting sortTest(testV);
+    // sortTest.quickSort(0, (testV.size() - 1));
+    // sortTest.quickPrint();
 
     return 0;
 

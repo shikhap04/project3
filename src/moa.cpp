@@ -53,10 +53,10 @@ void moa::parsing() {
     }
 }
 
-void moa::search(unordered_map<string, string>& inputs) {
+vector<accidentNode> moa::search(unordered_map<string, string>& inputs) {
     if (inputs.size() == 0) {
         searchedData = allData;
-        return;
+        return allData;
     }
 
     for(auto iter : inputs) {
@@ -105,6 +105,7 @@ void moa::search(unordered_map<string, string>& inputs) {
         searchedData[i].printInfo();
     }
     cout << "searched size: " << searchedData.size() << "\n";
+    return searchedData;
 }
 
 void moa::runSorts() {

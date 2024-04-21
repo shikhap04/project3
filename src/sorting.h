@@ -19,5 +19,8 @@ public:
     }
     void heapifyDown(int index);
     void heapSort();
-    void quickSort();
+
+    int partition(int start, int end);
+    void quickSort(int start, int end);
+    //void quickPrint();
 };
