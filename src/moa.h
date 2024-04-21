@@ -23,6 +23,6 @@ private:
 public:
     moa();
     void parsing();
-    void search(vector<pair<string, string>> inputs);
+    void search(vector<pair<string, string>>& inputs);
 
 };

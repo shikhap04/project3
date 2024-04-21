@@ -19,7 +19,6 @@ int main () {
 
     moa test;
     
-
     vector<pair<string, string>> inputs;
 
     string city;
@@ -37,7 +36,7 @@ int main () {
     cout << "\n1. Year (2008-2024)";
     cout << "\n2. Month (1-12)";
     cout << "\n3. Day (1-31)";
-    cout << "\n4. State (e.g. KA)";
+    cout << "\n4. State (e.g. MI)";
     cout << "\n5. City (e.g. Detroit)";
     cout << "\n6. Weather Condition (Cler, Few, Scat, or Ovct)";
     cout << "\n7. Injury Type (None, Minr, Sers, or Fatl)";
@@ -108,7 +107,7 @@ int main () {
         cout <<  "Not searching by year -> " << year << endl;
     }
 
-    cout << "Please input the searchable state in abbreviated format (e.g. KA) or any other value if you're not searching by year." << endl;
+    cout << "Please input the searchable state in abbreviated format (e.g. MI) or any other value if you're not searching by state." << endl;
     cin >> state;
 
     if (state.size() == 2) {
@@ -121,7 +120,7 @@ int main () {
 
         if (city != "-1") {
 
-            pair<string, string> temp("State", city);
+            pair<string, string> temp("City", city);
             inputs.push_back(temp);
 
         } else {
@@ -137,7 +136,7 @@ int main () {
     cout << "Please input the searchable weather condition or any other value if you're not searching by weather conditions." << endl;
     cin >> weatherCond;
 
-    if (weatherCond == "Cler" || weatherCond == "Few" || weatherCond == "Scat" || weatherCond == "Ovct") {
+    if (weatherCond == "CLER" || weatherCond == "FEW" || weatherCond == "SCAT" || weatherCond == "OVCT") {
 
         pair<string, string> temp("Sky Condition", weatherCond);
         inputs.push_back(temp);
@@ -150,7 +149,7 @@ int main () {
     cout << "Please input the searchable injury type or any other value if you're not searching by injury type." << endl;
     cin >> injuryType;
 
-    if (injuryType == "None" || injuryType == "Minr" || injuryType == "Sers" || injuryType == "Fatl") {
+    if (injuryType == "NONE" || injuryType == "MINR" || injuryType == "SERS" || injuryType == "FATL") {
 
         pair<string, string> temp("Highest Injury", injuryType);
         inputs.push_back(temp);
@@ -161,10 +160,7 @@ int main () {
     }
 
     cout << "\n";
-    for (int i = 0; i < inputs.size(); i++) {
-        cout << inputs[i].second << endl;
-    }
-
+    test.search(inputs);
 
     return 0;
 
