@@ -116,7 +116,8 @@ int main () {
         inputs.push_back(temp);
 
         cout << "Please input the searchable city (e.g. Detroit) or -1 if you're not searching by city." << endl;
-        cin >> city;
+        //cin >> city;
+        getline(cin >> ws, city);
 
         if (city != "-1") {
 
