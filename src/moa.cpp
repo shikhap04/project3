@@ -57,10 +57,13 @@ void moa::parsing() {
     // }
 }
 
-void moa::search(vector<pair<string, string>> inputs) {
-    if (inputs.size() == 0) return;
+void moa::search(vector<pair<string, string>>& inputs) {
+    if (inputs.size() == 0) {
+        searchedData = allData;
+        return;
+    }
 
-    for(int i =0; i < inputs.size(); i++) {
+    for(int i = 0; i < inputs.size(); i++) {
         cout << inputs[i].first << ":" << inputs[i].second << "\n";
     }
 
@@ -72,27 +75,31 @@ void moa::search(vector<pair<string, string>> inputs) {
             string variable = inputs[j].first;
             string value = inputs[j].second;
 
-            if (variable == "year" && (stoi(value)) != allData[i].getYear()) {
+            if (variable == "Year" && (stoi(value)) != allData[i].getYear()) {
                 addNode = false;
                 break;
             }
-            else if (variable == "month" && (stoi(value)) != allData[i].getMonth()) {
+            else if (variable == "Month" && (stoi(value)) != allData[i].getMonth()) {
                 addNode = false;
                 break;
             }
-            else if (variable == "day" && (stoi(value)) != allData[i].getDay()) {
+            else if (variable == "Day" && (stoi(value)) != allData[i].getDay()) {
                 addNode = false;
                 break;
             }
-            else if (variable == "city" && value != allData[i].getCity()) {
+            else if (variable == "State" && value != allData[i].getState()) {
                 addNode = false;
                 break;
             }
-            else if (variable == "state" && value != allData[i].getState()) {
+            else if (variable == "City" && value != allData[i].getCity()) {
                 addNode = false;
                 break;
             }
-            else if (variable == "injury type" && value != allData[i].getInjType()) {
+            else if (variable == "Sky Condition" && value != allData[i].getWeatherCond()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "Highest Injury" && value != allData[i].getInjType()) {
                 addNode = false;
                 break;
             }
@@ -102,8 +109,7 @@ void moa::search(vector<pair<string, string>> inputs) {
     for (int i = 0; i < searchedData.size(); i++) {
         searchedData[i].printWholeNode();
     }
-    cout << "searched size" << searchedData.size();
-    
+    cout << "searched size: " << searchedData.size() << "\n";
 }
 /*
     string EVID;
