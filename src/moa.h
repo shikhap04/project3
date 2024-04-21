@@ -17,10 +17,12 @@ using namespace std;
 class moa {
 private:
     vector<accidentNode> allData;
+    vector<accidentNode> searchedData;
     int allDataSize;
 
 public:
     moa();
     void parsing();
+    void search(vector<pair<string, string>> inputs);
 
 };

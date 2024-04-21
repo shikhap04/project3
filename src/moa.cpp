@@ -25,8 +25,8 @@ program class
 moa::moa() {
     parsing();
     allDataSize = allData.size();
+    cout << "Full Data Set Size: " << allDataSize << "\n";
 }
-
 
 void moa::parsing() {
     fstream file("input/accidentData.csv");
@@ -49,6 +49,7 @@ void moa::parsing() {
         
         accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
+
         allData.push_back(temp);
     }
     // for (int i = 0; i < 10; i++) {
@@ -56,6 +57,54 @@ void moa::parsing() {
     // }
 }
 
+void moa::search(vector<pair<string, string>> inputs) {
+    if (inputs.size() == 0) return;
+
+    for(int i =0; i < inputs.size(); i++) {
+        cout << inputs[i].first << ":" << inputs[i].second << "\n";
+    }
+
+    for (int i = 0; i < allDataSize; i++) {
+        bool addNode = true;
+
+        for (int j = 0; j < inputs.size(); j++) {
+
+            string variable = inputs[j].first;
+            string value = inputs[j].second;
+
+            if (variable == "year" && (stoi(value)) != allData[i].getYear()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "month" && (stoi(value)) != allData[i].getMonth()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "day" && (stoi(value)) != allData[i].getDay()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "city" && value != allData[i].getCity()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "state" && value != allData[i].getState()) {
+                addNode = false;
+                break;
+            }
+            else if (variable == "injury type" && value != allData[i].getInjType()) {
+                addNode = false;
+                break;
+            }
+        }
+        if(addNode == true) searchedData.push_back(allData[i]);
+    }
+    for (int i = 0; i < searchedData.size(); i++) {
+        searchedData[i].printWholeNode();
+    }
+    cout << "searched size" << searchedData.size();
+    
+}
 /*
     string EVID;
     string NTSB;
