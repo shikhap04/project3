@@ -24,6 +24,7 @@ private:
     int infoType;
     int allDataSize;
     bool searchedAlready;
+    
 
     void parsing();
     void search();

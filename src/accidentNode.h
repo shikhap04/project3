@@ -9,6 +9,7 @@ class accidentNode {
 private:
     string EVID;
     string NTSB;
+    
 
     string time;
     int day;
