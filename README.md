@@ -5,11 +5,11 @@ By Shikha Patel and Jay Maisuria
 <--------------------------Project Description-------------------------->
 This project is a application to search and sort a dataset of aviation accidents from 2008-2024 according to a set of parameters.
 
-It allows a user to input and set parameters such as date, location, weather, and injury type, and returns a list of accidents that match that criteria, sorted by the worst accidents to lease, if no parameters are set, it searches through the entire dataset and returns a sorted list. 
+It allows a user to input and set parameters such as date, location, weather, and injury type, and returns a list of accidents that match that criteria, sorted by the worst accidents to least, if no parameters are set, it searches through the entire dataset and returns a sorted list. 
 
-There are also options to set the style of information printed, get the size of the dataset that meets the current parameters, reset the application and its parameters, output a help menu that describes the commands and their functions.
+There are also options to set the style of information printed, get info about the dataset that meets the current parameters, reset the application and its parameters, output a help menu that describes the commands and their functions.
 
-The user is able to see the data by printing all of the accidents that meet the criteria or print top X worst accidents that meet the criteria.
+The user is able to see the data by printing all of the accidents that meet the criteria or print top X worst accidents by injury count that meet the criteria.
 
 <----------------------Instructions-------------------------->
 Here is a list of possible commands and what they do, the commands are have to be inputted as displayed. 
@@ -23,21 +23,21 @@ Set Parameter: Prompts for different parameters to search by, and will output nu
   - Weather Condition: Will search for a given weather condition, options to input are Cler, Few, Scat, and OVCT which means clear, few clouds, scattered clouds, and    overcast clouds respectively
   - Injury Type: Will search for worst injury type, options to input are None, Minr, Sers, and Fatl, which mean no injuries, minor injuries, serious injuries, and fatal injuries respecitvely. 
 
-Print Top X: Prompts for a number, X, so that it can display the top X accidents that meet the current criteria. Prints the top X injuries if no parameters have been set. Also will print time in microseconds that each sort took.
+Print Top X: Prompts for a number, X, so that it can display the top X accidents that meet the current criteria. Prints the top X accidents by injury count if no parameters have been set. Also will print time in microseconds that each sort took.
 
 Print All: Displays all accidents that meet the current criteria. Prints all accidents in dataset if no parameters have been set. Also will print time in microseconds that each sort took.
 
-Set Info Style: Allows you to choose style of information printed, default is 2. 
+Set Info Style: Allows you to choose style of information printed with the default being 2. 
 - 1: Whole Node (EVID, NTSB, Date, Time, City, State, Longitude, Latitude, Weather Condition, Worst injury type, Number of Injuries, Aircraft Model)
     EVID: 20110412X23201 NTSB: DCA11LA045 Date: 4/12/2011 06:00 Location: Jamaica, NY Coordinates: 403821N, 0734722W Weather: FEW Worst Injury: NONE- 576 Aircraft: CRJ
-- 2: Info (EVID, Date, Time, City, State, Weather Condition, Worst injury type, Number of Injuries, Aircraft Model)
+- 2: General Info (EVID, Date, Time, City, State, Weather Condition, Worst injury type, Number of Injuries, Aircraft Model)
     EVID: 20110412X23201 Date: 4/12/2011 06:00  Location: Jamaica, NY  Weather: FEW  Worst Injury: NONE: 576  Plane: CRJ
-- 3: Important Info (Date, Time, City, State, Worst injury type, Number of Injuries)
+- 3: Critical Info (Date, Time, City, State, Worst injury type, Number of Injuries)
     Date: 4/12/2011 06:00  Location: Jamaica, NY  Worst Injury: NONE: 576
 
 Help: Displays a short list of command options and their descriptions
 
-Size: Returns the size of searched data
+Current Data Info: Prints the size of searched data, current info style, number of inputs and list of parameters and their values
 
 Reset: Resets the program so that the searched data and inputs is cleared and the info style is set to default.
 

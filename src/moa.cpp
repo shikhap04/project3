@@ -11,27 +11,15 @@
 
 using namespace std;
 
-/*
-program class
-- constructor parses and makes the vector of nodes
-- get search parameter (function called in main)
-    - maybe it stores parameters in the object itself (when get new parameters, it sets everything else to null/-1)
-- does search
-- then does sort
-    - heap sort
-    - quick sort
-- return small sorted vector to main
-*/
-
-
+//Constructor, parses csv file and sets defaults
 moa::moa() {
     parsing();
     allDataSize = allData.size();
     infoType = 2;
     searchedAlready = false;
-    cout << "Full Data Set Size: " << allDataSize << "\n";
 }
 
+// Parses CSV file
 void moa::parsing() {
     fstream file("input/accidentData.csv");
     if(!file.is_open()) {cout << "FILE OPENING ERROR!";}
@@ -41,6 +29,7 @@ void moa::parsing() {
 
     getline(file, line);
 
+    // Iterates through each line of CSV
     while (!file.eof()) {
         row.clear();
         getline(file, line);
@@ -50,7 +39,8 @@ void moa::parsing() {
         while (getline(stream, value, ',')) {
             row.push_back(value);
         }
-                
+
+        // Makes a node for each accident and adds to the vector that contains all the data        
         accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
 
@@ -58,15 +48,17 @@ void moa::parsing() {
     }
 }
 
+// Searches through all data to find all nodes that matches the inputted parameters
 void moa::search() {
     searchedAlready = true;
     searchedData.clear();
-    if (inputs.size() == 0) {
+
+    if (inputs.size() == 0) { // if there are no input parameters, searched data needs to be all data
         searchedData = allData;
-        //cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
         return;
     }
 
+    // Iterates through all data and then iterates through input unordered map to check if the node matches the value in the input unordered map
     for (int i = 0; i < allDataSize; i++) {
         bool addNode = true;
 
@@ -74,6 +66,7 @@ void moa::search() {
             string variable = iter.first;
             string value = iter.second;
 
+            // Compares each variable and its value in input to current node values, if any comparison is false it continues to the next node
             if (variable == "Year" && (stoi(value)) != allData[i].getYear()) {
                 addNode = false;
                 break;
@@ -103,12 +96,13 @@ void moa::search() {
                 break;
             }
         }
-        if(addNode == true) searchedData.push_back(allData[i]);
+        if(addNode == true) searchedData.push_back(allData[i]); // if none of the comparisons where false, add it to the searched data
     }
 }
 
+// Runs the sorts on the searched data, and measures time taken. 
+// Then prints the number of accidents that were in the searched data and time it took for each sort
 void moa::runSorts() {
-
     auto quickStart = chrono::high_resolution_clock::now();
     sorter.quickSort(0, searchedData.size() - 1);
     auto quickStop = chrono::high_resolution_clock::now();
@@ -123,17 +117,13 @@ void moa::runSorts() {
  
     cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
     cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
-
 }
 
-void moa::setinfoType(int& num) {
-    infoType = num;
-}
-
+// Gets parameters from users using a CLI and placing the given parameters into inputs
 void moa::getParameters() {
 
     searchedAlready = false;
-    inputs.clear();
+    inputs.clear(); // Clears any past inputs
     string city;
     string state; 
     string day;
@@ -142,6 +132,7 @@ void moa::getParameters() {
     string weatherCond; 
     string injuryType;
 
+    // Prints out all parameters and an example of each
     cout << "\nSearchable criteria include any combinations of:";
     cout << "\n1. Year (2008-2024)";
     cout << "\n2. Month (1-12)";
@@ -158,6 +149,7 @@ void moa::getParameters() {
     cin >> year;
     bool isYearNum = true;
 
+    // checks if year is properly inputted as an int
     for (auto i: year) {
         if(!isdigit(i)) {
             isYearNum = false;
@@ -165,6 +157,7 @@ void moa::getParameters() {
         }
     }
 
+    // Gets inputs for year, month, day and makes sure inputs are properly inputted, ensures user cannot give month without year or day without month and year
     if (isYearNum == true && stoi(year) <= 2024 && stoi(year) >= 2008) {
         inputs.emplace("Year", year);
 
@@ -208,17 +201,17 @@ void moa::getParameters() {
         cout <<  "Not searching by year -> " << year << endl;
     }
 
+    // Gets inputs for state and city and ensures state is inputted correctly as a valid abbreviation, ensures user cannot provide city without state
     cout << "Please input the searchable state in abbreviated format (e.g. MI) or any other value if you're not searching by state." << endl;
     cin >> state;
     if (state.size() == 2 && find(usStateAbbre.begin(), usStateAbbre.end(), state) != usStateAbbre.end()) {
 
         inputs.emplace("State", state);
 
-        cout << "Please input the searchable city (e.g. Detroit) or -1 if you're not searching by city." << endl;
-        //cin >> city;
+        cout << "Please input the searchable city (e.g. Detroit) or \"None\" if you're not searching by city." << endl;
         getline(cin >> ws, city);
 
-        if (city != "-1") {
+        if (city != "-1" && city != "None" && city != "none") {
             inputs.emplace("City", city);
         } 
         else {
@@ -229,6 +222,7 @@ void moa::getParameters() {
         cout <<  "Not searching by state -> " << state << endl;
     }
 
+    // Gets inputs for weather conditions and ensures it is properly inputted as one of the available options
     cout << "Please input the searchable weather condition or any other value if you're not searching by weather conditions." << endl;
     cin >> weatherCond;
 
@@ -244,6 +238,7 @@ void moa::getParameters() {
         cout << "Not searching by weather condition -> " << weatherCond << endl;
     }
     
+    // Gets inputs for injury type and ensures it is properly inputted as one of the available options
     cout << "Please input the searchable injury type or any other value if you're not searching by injury type." << endl;
     getline(cin >> ws, injuryType);
 
@@ -262,50 +257,26 @@ void moa::getParameters() {
     
 }
 
-void moa::printTopXInfo(int& num) { 
-    if (!searchedAlready) {
-        search(); 
-    }
-    else if (searchedAlready && searchedData.size() == 0) {
-        cout << "No entries match parameters, please try again";
-        return;
-    }
-    //if (searchedData.size() == 0) sorter.setData(allData);
-    //else sorter.setData(searchedData);
-    sorter.setData(searchedData);
-
-    if (searchedData.size() <= num || num <= 0) {
-        cout << "Number is invalid! Try again, valid range is 0 to " << searchedData.size() << "\n";
-        return;
-    }
-    runSorts();
-    sorter.print(infoType, num);
+// Sets info type
+void moa::setinfoType(int& num) {
+    infoType = num;
 }
 
-void moa::printAll() {
-    if (!searchedAlready) {
-        search(); 
-    }
-    else if (searchedAlready && searchedData.size() == 0) {
-        cout << "No entries match parameters, please try again";
-        return;
-    }
-    //if (searchedData.size() == 0) sorter.setData(allData);
-    //else sorter.setData(searchedData);
-    sorter.setData(searchedData);
-    runSorts();
-    sorter.print(infoType, -1);
+// Returns info type
+int moa::getInfoStyle() {
+    return infoType;
 }
 
+// If data hasn't been searched already, search it and then return size
 int moa::getSizeSearched() {
     if (!searchedAlready) {
         search();
         searchedAlready = true;
     }
-    if (!searchedAlready) return allDataSize;
     return searchedData.size();
 }
 
+// Prints number of inputs and all parameters and its value
 void moa::printInputs() {
     cout << "Number of Inputs is: " << inputs.size() << "\n";
     if (inputs.size() != 0) {
@@ -316,6 +287,46 @@ void moa::printInputs() {
     }
 }
 
+// If data hasn't been searched already, it searches it
+// If searched and there are no entries that match the parameters, outputs an error message
+// Validates number inputted is not below 0 or above the size of searched data
+// Then ensures the sorting class has correct data and runs the sorts
+// Only prints inputted number of entries
+void moa::printTopXInfo(int& num) { 
+    if (!searchedAlready) {
+        search(); 
+    }
+    else if (searchedAlready && searchedData.size() == 0) {
+        cout << "No entries match parameters, please try again";
+        return;
+    }
+    if (searchedData.size() <= num || num <= 0) {
+        cout << "Number is invalid! Try again, valid range is 0 to " << searchedData.size() << "\n";
+        return;
+    }
+    sorter.setData(searchedData);
+    runSorts();
+    sorter.print(infoType, num);
+}
+
+// If data hasn't been searched already, it searches it
+// If searched, but there are no entries that match the parameters, outputs an error message
+// Then ensures the sorting class has correct data and runs the sorts
+// Prints all entries
+void moa::printAll() {
+    if (!searchedAlready) {
+        search(); 
+    }
+    else if (searchedAlready && searchedData.size() == 0) {
+        cout << "No entries match parameters, please try again";
+        return;
+    }
+    sorter.setData(searchedData);
+    runSorts();
+    sorter.print(infoType, -1);
+}
+
+// Reset inputs, searched data vector is emptied and defaults are reinstated
 void moa::reset() {
     inputs.clear();
     searchedData.clear();

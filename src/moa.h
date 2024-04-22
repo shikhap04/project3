@@ -37,7 +37,6 @@ private:
     void parsing();
     void search();
     void runSorts();
-    void printInputs();
 
 public:
     moa();
@@ -45,6 +44,8 @@ public:
     void getParameters();
     void printTopXInfo(int& num);
     void printAll();
+    void printInputs();
     int getSizeSearched();
+    int getInfoStyle();
     void reset();
 };

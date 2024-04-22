@@ -118,7 +118,7 @@ void accidentNode::printInfo() {
     cout << "  Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
     cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
     cout << "  Weather: " << reformatNull(weatherCond);
-    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount);
+    cout << "  Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount);
     cout << "  Plane: " << reformatNull(planeModel) << "\n";
 }
 
@@ -127,7 +127,7 @@ void accidentNode::printImportantInfo() {
 
     cout << "Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
     cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
-    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount) << "\n";
+    cout << "  Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount) << "\n";
 }
     
 //accidentNode::~accidentNode() {}
