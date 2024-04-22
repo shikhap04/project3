@@ -74,7 +74,7 @@ int sorting::partition(int start, int end) {
 }
 
 void sorting::quickSort(int start, int end) {
-
+    
     if (start < end) {
         int pivotPosition = partition(start, end);
         quickSort(start, pivotPosition - 1);

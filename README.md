@@ -8,6 +8,8 @@ searched data. I have not done any of the chrono stuff. We may have to change th
 Link for chrono
 https://stackoverflow.com/questions/22387586/measuring-execution-time-of-a-function-in-c
 
+READMEs typically give a description of what the project is, instructions on how one would run the project locally, and who contributed to it. feel free to add more but this is an idea of what most READMEs have
+
 
 <--------------------------JAY NOTES-------------------------->
 
