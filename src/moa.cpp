@@ -8,7 +8,6 @@
 #include <chrono>
 #include "moa.h"
 
-
 using namespace std;
 
 /*
