@@ -19,7 +19,7 @@ private:
     string latitude;
 
     string injuryType;
-    unsigned int injuryCount;
+    int injuryCount;
 
     string city;
     string state;
@@ -28,6 +28,8 @@ private:
     string planeModel;
 
     string reformatTime();
+    string reformatIntNull(int& value);
+    string reformatNull(string& value);
 
 public:
     accidentNode();
@@ -46,6 +48,8 @@ public:
 
     void printWholeNode(); // NEED TO FIX -1 TO PRINT NULL
     void printInfo();
+    void printImportantInfo();
 
     //~accidentNode();
+
 };
