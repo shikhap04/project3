@@ -1,4 +1,5 @@
 #include <iomanip>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <fstream>
@@ -64,10 +65,6 @@ void moa::search() {
         searchedData = allData;
         //cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
         return;
-    }
-
-    for(auto iter : inputs) {
-        cout << iter.first << ":" << iter.second << "\n";
     }
 
     for (int i = 0; i < allDataSize; i++) {
@@ -142,8 +139,8 @@ void moa::getParameters() {
     string day;
     string month;
     string year;
-    string injuryType;
     string weatherCond; 
+    string injuryType;
 
     cout << "\nSearchable criteria include any combinations of:";
     cout << "\n1. Year (2008-2024)";
@@ -213,8 +210,7 @@ void moa::getParameters() {
 
     cout << "Please input the searchable state in abbreviated format (e.g. MI) or any other value if you're not searching by state." << endl;
     cin >> state;
-
-    if (state.size() == 2) {
+    if (state.size() == 2 && find(usStateAbbre.begin(), usStateAbbre.end(), state) != usStateAbbre.end()) {
 
         inputs.emplace("State", state);
 
@@ -236,24 +232,33 @@ void moa::getParameters() {
     cout << "Please input the searchable weather condition or any other value if you're not searching by weather conditions." << endl;
     cin >> weatherCond;
 
-    if (weatherCond == "CLER" || weatherCond == "FEW" || weatherCond == "SCAT" || weatherCond == "OVCT") {
+    if (weatherCond == "CLER" || weatherCond == "FEW" || weatherCond == "SCAT" || weatherCond == "OVCT" ||
+        weatherCond == "cler" || weatherCond == "few" || weatherCond == "scat" || weatherCond == "ovct" ||
+        weatherCond == "Cler" || weatherCond == "Few" || weatherCond == "Scat" || weatherCond == "Ovct") {
+        for (auto i : weatherCond) {
+            i = toupper(i);
+        }
         inputs.emplace("Sky Condition", weatherCond);
     }
     else {
-        cout << "Not searching by weatherCond -> " << weatherCond << endl;
+        cout << "Not searching by weather condition -> " << weatherCond << endl;
     }
     
     cout << "Please input the searchable injury type or any other value if you're not searching by injury type." << endl;
     getline(cin >> ws, injuryType);
 
-    if (injuryType == "NONE" || injuryType == "MINR" || injuryType == "SERS" || injuryType == "FATL") {
+    if (injuryType == "NONE" || injuryType == "MINR" || injuryType == "SERS" || injuryType == "FATL" ||
+        injuryType == "none" || injuryType == "minr" || injuryType == "sers" || injuryType == "fatl" ||
+        injuryType == "None" || injuryType == "Minr" || injuryType == "Sers" || injuryType == "Fatl") {
+        for (auto i : injuryType) {
+            i = toupper(i);
+        }
         inputs.emplace("Highest Injury", injuryType);
     }
     else {
-        cout << "Not searching by injuryType -> " << injuryType << endl;
+        cout << "Not searching by Injury Type -> " << injuryType << endl;
     }
-
-    cout << "Number of Inputs is: " << inputs.size() << "\n";
+    printInputs();
     
 }
 
@@ -301,12 +306,19 @@ int moa::getSizeSearched() {
     return searchedData.size();
 }
 
+void moa::printInputs() {
+    cout << "Number of Inputs is: " << inputs.size() << "\n";
+    if (inputs.size() != 0) {
+        cout << "Inputs are: \n";
+        for (auto iter : inputs) {
+        cout << iter.first << ": " << iter.second << "\n";
+        }
+    }
+}
+
 void moa::reset() {
     inputs.clear();
     searchedData.clear();
     searchedAlready = false;
     infoType = 2;
-    cout << "Reset Successful!\n";
-    cout << "Current Data Set Size: " << searchedData.size() << "\n";
-    cout << "Now reverting to all data available\n";
 }
