@@ -22,8 +22,13 @@ public:
         quickData = searchedData;
         heapSize = searchedData.size();
     }
+    void setData(vector<accidentNode>& searchedData) {
+        heapData = searchedData;
+        quickData = searchedData;
+        heapSize = searchedData.size();
+    }
     void heapSort();
     void quickSort(int start, int end);
     
-    void print(int type);
+    void print(int type, int num);
 };

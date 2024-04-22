@@ -15,14 +15,26 @@ using namespace std;
 
 class moa {
 private:
+    sorting sorter;
+
     vector<accidentNode> allData;
     vector<accidentNode> searchedData;
+    unordered_map<string, string> inputs;
+
+    int infoType;
     int allDataSize;
+    bool searchedAlready;
+
+    void parsing();
+    void search();
+    void runSorts();
 
 public:
     moa();
-    void parsing();
-    void search(unordered_map<string, string>& inputs);
-    void runSorts(int typeInfo);
-
+    void setinfoType(int& num);
+    void getParameters();
+    void printTopXInfo(int& num);
+    void printAll();
+    int getSizeSearched();
+    void reset();
 };
