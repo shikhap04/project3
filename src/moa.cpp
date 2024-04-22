@@ -126,24 +126,3 @@ void moa::runSorts(bool indicator) {
     cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
 
 }
-/*
-    string EVID;
-    string NTSB;
-
-    string time;
-    int day;
-    int month;
-    int year;
-
-    string longitude;
-    string latitude;
-
-    string injuryType;
-    unsigned int injuryCount;
-
-    string city;
-    string state;
-
-    string weatherCond;
-    string planeModel;
-    */
