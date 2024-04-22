@@ -47,7 +47,7 @@ void moa::parsing() {
         while (getline(stream, value, ',')) {
             row.push_back(value);
         }
-        
+                
         accidentNode temp(row[0], row[1], stoi(row[2]), stoi(row[3]), stoi(row[4]), row[5],  
         row[6], row[7], row[8], row[9], row[10], row[11], stoi(row[12]), row[13]);
 
@@ -106,7 +106,7 @@ void moa::search(unordered_map<string, string>& inputs) {
     }
 }
 
-void moa::runSorts(bool indicator) {
+void moa::runSorts(int typeInfo) {
 
     sorting test2(searchedData);
   
@@ -122,29 +122,8 @@ void moa::runSorts(bool indicator) {
 
     auto heapDuration = chrono::duration_cast<chrono::microseconds> (heapStop - heapStart);
 
-    test2.print(true); // false: quick true: heap
+    test2.print(typeInfo); // false: quick true: heap
     cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
     cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
 
 }
-/*
-    string EVID;
-    string NTSB;
-
-    string time;
-    int day;
-    int month;
-    int year;
-
-    string longitude;
-    string latitude;
-
-    string injuryType;
-    unsigned int injuryCount;
-
-    string city;
-    string state;
-
-    string weatherCond;
-    string planeModel;
-    */
