@@ -136,6 +136,7 @@ void moa::setinfoType(int& num) {
 void moa::getParameters() {
 
     searchedAlready = false;
+    inputs.clear();
     string city;
     string state; 
     string day;
@@ -243,7 +244,7 @@ void moa::getParameters() {
     }
     
     cout << "Please input the searchable injury type or any other value if you're not searching by injury type." << endl;
-    getline(cin, injuryType);
+    getline(cin >> ws, injuryType);
 
     if (injuryType == "NONE" || injuryType == "MINR" || injuryType == "SERS" || injuryType == "FATL") {
         inputs.emplace("Highest Injury", injuryType);
@@ -260,9 +261,13 @@ void moa::printTopXInfo(int& num) {
     if (!searchedAlready) {
         search(); 
     }
-    if (searchedData.size() == 0) sorter.setData(allData);
-    else sorter.setData(searchedData);
-    // sorter.print(infoType, -1);
+    else if (searchedAlready && searchedData.size() == 0) {
+        cout << "No entries match parameters, please try again";
+        return;
+    }
+    //if (searchedData.size() == 0) sorter.setData(allData);
+    //else sorter.setData(searchedData);
+    sorter.setData(searchedData);
 
     if (searchedData.size() <= num || num <= 0) {
         cout << "Number is invalid! Try again, valid range is 0 to " << searchedData.size() << "\n";
@@ -276,8 +281,13 @@ void moa::printAll() {
     if (!searchedAlready) {
         search(); 
     }
-    if (searchedData.size() == 0) sorter.setData(allData);
-    else sorter.setData(searchedData);
+    else if (searchedAlready && searchedData.size() == 0) {
+        cout << "No entries match parameters, please try again";
+        return;
+    }
+    //if (searchedData.size() == 0) sorter.setData(allData);
+    //else sorter.setData(searchedData);
+    sorter.setData(searchedData);
     runSorts();
     sorter.print(infoType, -1);
 }
@@ -297,5 +307,6 @@ void moa::reset() {
     searchedAlready = false;
     infoType = 2;
     cout << "Reset Successful!\n";
-    cout << "Full Data Set Size: " << searchedData.size() << "\n";
+    cout << "Current Data Set Size: " << searchedData.size() << "\n";
+    cout << "Now reverting to all data available\n";
 }
