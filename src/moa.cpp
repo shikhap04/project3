@@ -7,7 +7,6 @@
 #include <chrono>
 #include "moa.h"
 
-
 using namespace std;
 
 /*
@@ -109,7 +108,7 @@ void moa::search(unordered_map<string, string>& inputs) {
 void moa::runSorts(bool indicator) {
 
     sorting test2(searchedData);
-  
+
     auto quickStart = chrono::high_resolution_clock::now();
     test2.quickSort(0, searchedData.size() - 1);
     auto quickStop = chrono::high_resolution_clock::now();
