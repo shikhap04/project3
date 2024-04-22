@@ -6,7 +6,6 @@
 #include <iterator>
 #include "moa.h"
 
-
 using namespace std;
 
 /*
@@ -110,6 +109,7 @@ void moa::runSorts(bool indicator) {
 
     sorting test2(searchedData);
     if (indicator == true) {
+
         test2.heapSort();
         test2.print(true);
     }
