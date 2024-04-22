@@ -156,7 +156,8 @@ int main () {
     cout << "\n";
 
     test.search(inputs);
-    test.runSorts(false);
+    test.runSorts(1);
+
 
     return 0;
 

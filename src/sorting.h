@@ -25,5 +25,5 @@ public:
     void heapSort();
     void quickSort(int start, int end);
     
-    void print(bool type);
+    void print(int type);
 };

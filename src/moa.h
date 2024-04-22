@@ -12,6 +12,7 @@
 using namespace std;
 
 
+
 class moa {
 private:
     vector<accidentNode> allData;
@@ -22,6 +23,6 @@ public:
     moa();
     void parsing();
     void search(unordered_map<string, string>& inputs);
-    void runSorts(bool indicator);
+    void runSorts(int typeInfo);
 
 };

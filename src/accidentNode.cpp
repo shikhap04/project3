@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <typeinfo>
 #include "accidentNode.h"
 
 using namespace std;
@@ -71,7 +72,7 @@ string accidentNode::reformatTime() {
         timeFormat.append(1, time[2]);
     }
     else if (time == "-1") {
-        timeFormat = "N/A";
+        timeFormat = "Null";
     }
     else if (time.size() == 2) {
         timeFormat.append(1, time[0]);
@@ -91,22 +92,41 @@ string accidentNode::reformatTime() {
     return timeFormat;
 }
 
+string accidentNode::reformatIntNull(int& value) {
+    if (value == -1) return "null";
+    return to_string(value);
+}
+
+string accidentNode::reformatNull(string& value) {
+    if (value == "-1") return "null";
+    return value;
+}
 
 void accidentNode::printWholeNode() {
     string timeFormat = reformatTime();    
 
-    cout << EVID << " " << NTSB << " " << month << " " << day << " " << year << " " << timeFormat << " " << city << " " << state 
-    << " " << longitude << " " << latitude << " " << weatherCond << " " << injuryType << " " << injuryCount << " " << planeModel << "\n";
+    cout << "EVID: "<< reformatNull(EVID) << " NTSB: " << reformatNull(NTSB) << " Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat 
+    << " Location: " << reformatNull(city) << ", " << reformatNull(state) << " Coordinates: " << reformatNull(longitude) << ", " << reformatNull(latitude)
+    << " Weather: " << reformatNull(weatherCond) << " Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount) << " Aircraft: " << reformatNull(planeModel) << "\n";
 }
 
 void accidentNode::printInfo() {
     string timeFormat = reformatTime();
 
-    cout << "Date: " << month << "/" << day << "/" << year << " " << timeFormat;
-    cout << "  Location: " << city << ", " << state;
-    cout << "  Weather: " << weatherCond;
-    cout << "  Worst Injury: " << injuryType << ": " << injuryCount;
-    cout << "  Plane: " << planeModel << "\n";
+    cout << "EVID: "<< reformatNull(EVID);
+    cout << "  Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
+    cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
+    cout << "  Weather: " << reformatNull(weatherCond);
+    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount);
+    cout << "  Plane: " << reformatNull(planeModel) << "\n";
+}
+
+void accidentNode::printImportantInfo() {
+    string timeFormat = reformatTime();
+
+    cout << "Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
+    cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
+    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount);
 }
     
 //accidentNode::~accidentNode() {}
