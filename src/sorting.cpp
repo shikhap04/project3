@@ -83,24 +83,26 @@ void sorting::quickSort(int start, int end) {
 
 }
 
-void sorting::print(int type) {
-    if (type == 0) {
-        for (int i = 0; i < heapData.size(); i++) {
+void sorting::print(int type, int num) {
+    if (num == -1) num = heapData.size();
+    if (type == 1) {
+        for (int i = 0; i < num; i++) {
             //heapData[i].printInfo();
             extractMax().printWholeNode();
         }
     }
-    else if (type == 1) {
-        for (int i = 0; i < heapData.size(); i++) {
+    else if (type == 2) {
+        for (int i = 0; i < num; i++) {
             //heapData[i].printInfo();
             extractMax().printInfo();
         }
     }
-    else if (type == 2) {
-        for (int i = 0; i < heapData.size(); i++) {
+    else if (type == 3) {
+        for (int i = 0; i < num; i++) {
             //heapData[i].printInfo();
             extractMax().printImportantInfo();
         }
     }
     
 }
+

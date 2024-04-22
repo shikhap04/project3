@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 accidentNode::accidentNode() {
 
     EVID = "null";
@@ -126,7 +127,7 @@ void accidentNode::printImportantInfo() {
 
     cout << "Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
     cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
-    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount);
+    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount) << "\n";
 }
     
 //accidentNode::~accidentNode() {}
