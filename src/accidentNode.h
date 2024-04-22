@@ -7,10 +7,10 @@ using namespace std;
 
 class accidentNode {
 private:
+    // Data that needs to be stored in each node
     string EVID;
     string NTSB;
     
-
     string time;
     int day;
     int month;
@@ -28,16 +28,19 @@ private:
     string weatherCond;
     string planeModel;
 
+    // Reformatting data so that it is readable to the user
     string reformatTime();
     string reformatIntNull(int& value);
     string reformatNull(string& value);
 
 public:
+    // Constructors
     accidentNode();
     accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
         string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
         string planeModel);
     
+    // Getters for Node information
     int getYear() {return year;}
     int getMonth() {return month;}
     int getDay() {return day;}
@@ -47,10 +50,8 @@ public:
     string getInjType() {return injuryType;}
     int getInjCount() {return injuryCount;}
 
-    void printWholeNode(); // NEED TO FIX -1 TO PRINT NULL
+    // Various ways to print a single node
+    void printWholeNode(); 
     void printInfo();
     void printImportantInfo();
-
-    //~accidentNode();
-
 };
