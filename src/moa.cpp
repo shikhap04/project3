@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <iterator>
+#include <chrono>
 #include "moa.h"
 
 using namespace std;
@@ -102,12 +103,12 @@ void moa::search(unordered_map<string, string>& inputs) {
         }
         if(addNode == true) searchedData.push_back(allData[i]);
     }
-    cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
 }
 
 void moa::runSorts(bool indicator) {
 
     sorting test2(searchedData);
+<<<<<<< HEAD
     if (indicator == true) {
 
         test2.heapSort();
@@ -118,6 +119,25 @@ void moa::runSorts(bool indicator) {
         test2.print(false);
     }
     
+=======
+  
+    auto quickStart = chrono::high_resolution_clock::now();
+    test2.quickSort(0, searchedData.size() - 1);
+    auto quickStop = chrono::high_resolution_clock::now();
+
+    auto quickDuration = chrono::duration_cast<chrono::microseconds> (quickStop - quickStart);
+
+    auto heapStart = chrono::high_resolution_clock::now();
+    test2.heapSort();
+    auto heapStop = chrono::high_resolution_clock::now();
+
+    auto heapDuration = chrono::duration_cast<chrono::microseconds> (heapStop - heapStart);
+
+    test2.print(true); // false: quick true: heap
+    cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
+    cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
+
+>>>>>>> 424a356d3f828d5f921cdd3174cd5db465c48304
 }
 /*
     string EVID;
