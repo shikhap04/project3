@@ -106,8 +106,10 @@ void moa::search(unordered_map<string, string>& inputs) {
     }
 }
 
-void moa::runSorts() {
+void moa::runSorts(bool indicator) {
+
     sorting test2(searchedData);
+  
     auto quickStart = chrono::high_resolution_clock::now();
     test2.quickSort(0, searchedData.size() - 1);
     auto quickStop = chrono::high_resolution_clock::now();
@@ -123,6 +125,7 @@ void moa::runSorts() {
     test2.print(true); // false: quick true: heap
     cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
     cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
+
 }
 /*
     string EVID;
