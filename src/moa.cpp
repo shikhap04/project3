@@ -59,6 +59,7 @@ void moa::parsing() {
 
 void moa::search() {
     searchedAlready = true;
+    searchedData.clear();
     if (inputs.size() == 0) {
         searchedData = allData;
         //cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
@@ -134,6 +135,7 @@ void moa::setinfoType(int& num) {
 
 void moa::getParameters() {
 
+    searchedAlready = false;
     string city;
     string state; 
     string day;
@@ -251,29 +253,28 @@ void moa::getParameters() {
     }
 
     cout << "Number of Inputs is: " << inputs.size() << "\n";
-
+    
 }
 
 void moa::printTopXInfo(int& num) { 
     if (!searchedAlready) {
-        search();
-        searchedAlready = true;
+        search(); 
     }
     if (searchedData.size() == 0) sorter.setData(allData);
     else sorter.setData(searchedData);
-    runSorts();
     // sorter.print(infoType, -1);
 
-    if (searchedData.size() <= num || num <= -1 || num == 0) {
+    if (searchedData.size() <= num || num <= 0) {
         cout << "Number is invalid! Try again, valid range is 0 to " << searchedData.size() << "\n";
+        return;
     }
+    runSorts();
     sorter.print(infoType, num);
 }
 
 void moa::printAll() {
     if (!searchedAlready) {
-        search();
-        searchedAlready = true;
+        search(); 
     }
     if (searchedData.size() == 0) sorter.setData(allData);
     else sorter.setData(searchedData);
