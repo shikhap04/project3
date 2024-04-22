@@ -7,7 +7,7 @@
 
 using namespace std;
 
-
+// Default Constructor sets everything to null
 accidentNode::accidentNode() {
 
     EVID = "null";
@@ -31,6 +31,7 @@ accidentNode::accidentNode() {
     planeModel = "null";
 }
 
+// Information Constructor adds all info the node, this is used. 
 accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int year, string time,  
         string city, string state, string longitude, string latitude, string weatherCond, string injuryType, int injuryCount,
         string planeModel) {
@@ -55,9 +56,13 @@ accidentNode::accidentNode(string EVID, string NTSB, int month, int day, int yea
     this->planeModel = planeModel;
 }
 
+// Reformat Time so that it includes a colon when printed or is null if -1
 string accidentNode::reformatTime() {
     string timeFormat;
-    if (time.size() == 4) {
+    if (time == "-1") {
+        timeFormat = "Null";
+    }
+    else if (time.size() == 4) {
         timeFormat.append(1, time[0]);
         timeFormat.append(1, time[1]);
         timeFormat.append(1, ':');
@@ -71,9 +76,6 @@ string accidentNode::reformatTime() {
         timeFormat.append(1, ':');
         timeFormat.append(1, time[1]);
         timeFormat.append(1, time[2]);
-    }
-    else if (time == "-1") {
-        timeFormat = "Null";
     }
     else if (time.size() == 2) {
         timeFormat.append(1, time[0]);
@@ -93,16 +95,19 @@ string accidentNode::reformatTime() {
     return timeFormat;
 }
 
+// Reformat ints to print null if the information is not available
 string accidentNode::reformatIntNull(int& value) {
     if (value == -1) return "null";
     return to_string(value);
 }
 
+// Reformat strings to print null if the information is not available
 string accidentNode::reformatNull(string& value) {
     if (value == "-1") return "null";
     return value;
 }
 
+// Prints all information relating to an entry
 void accidentNode::printWholeNode() {
     string timeFormat = reformatTime();    
 
@@ -111,6 +116,7 @@ void accidentNode::printWholeNode() {
     << " Weather: " << reformatNull(weatherCond) << " Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount) << " Aircraft: " << reformatNull(planeModel) << "\n";
 }
 
+// Prints EVID, Date, Location, Weather, Worst Injury Type and Count, and AirCraft 
 void accidentNode::printInfo() {
     string timeFormat = reformatTime();
 
@@ -118,16 +124,16 @@ void accidentNode::printInfo() {
     cout << "  Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
     cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
     cout << "  Weather: " << reformatNull(weatherCond);
-    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount);
-    cout << "  Plane: " << reformatNull(planeModel) << "\n";
+    cout << "  Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount);
+    cout << "  Aircraft: " << reformatNull(planeModel) << "\n";
 }
 
+// Prints Date, Location, and Worst Injury Type and Count
 void accidentNode::printImportantInfo() {
     string timeFormat = reformatTime();
 
     cout << "Date: " << reformatIntNull(month) << "/" << reformatIntNull(day) << "/" << reformatIntNull(year) << " " << timeFormat;
     cout << "  Location: " << reformatNull(city) << ", " << reformatNull(state);
-    cout << "  Worst Injury: " << reformatNull(injuryType) << ": " << reformatIntNull(injuryCount) << "\n";
+    cout << "  Worst Injury: " << reformatNull(injuryType) << "- " << reformatIntNull(injuryCount) << "\n";
 }
-    
-//accidentNode::~accidentNode() {}
+
