@@ -107,16 +107,16 @@ void moa::runSorts() {
     sorter.quickSort(0, searchedData.size() - 1);
     auto quickStop = chrono::high_resolution_clock::now();
 
-    auto quickDuration = chrono::duration_cast<chrono::microseconds> (quickStop - quickStart);
+    auto quickDuration = chrono::duration_cast<chrono::nanoseconds> (quickStop - quickStart);
 
     auto heapStart = chrono::high_resolution_clock::now();
     sorter.heapSort();
     auto heapStop = chrono::high_resolution_clock::now();
 
-    auto heapDuration = chrono::duration_cast<chrono::microseconds> (heapStop - heapStart);
+    auto heapDuration = chrono::duration_cast<chrono::nanoseconds> (heapStop - heapStart);
  
     cout << "Number of accidents that meet the criteria: " << searchedData.size() << "\n";
-    cout << "Heap time: " << heapDuration.count() << " microseconds  Quick time: " << quickDuration.count() << " microseconds \n";
+    cout << "Heap time: " << heapDuration.count() << " nanoseconds  Quick time: " << quickDuration.count() << " nanoseconds \n";
 }
 
 // Gets parameters from users using a CLI and placing the given parameters into inputs
