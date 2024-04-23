@@ -300,10 +300,11 @@ void moa::printTopXInfo(int& num) {
         cout << "No entries match parameters, please try again";
         return;
     }
-    if (searchedData.size() <= num || num <= 0) {
+    if (num <= 0) {
         cout << "Number is invalid! Try again, valid range is 0 to " << searchedData.size() << "\n";
         return;
     }
+    else if (searchedData.size() <= num) num = searchedData.size();
     sorter.setData(searchedData);
     runSorts();
     sorter.print(infoType, num);
