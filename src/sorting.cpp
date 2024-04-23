@@ -83,7 +83,6 @@ void sorting::quickSort(int start, int end) {
         quickSort(start, pivotPosition - 1);
         quickSort(pivotPosition + 1, end);
     }
-
 }
 
 // Prints the inputted number of entries, if user wanted to print all data, then num is set to the size of the heap
